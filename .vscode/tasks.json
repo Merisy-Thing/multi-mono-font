@@ -1,0 +1,29 @@
+{
+
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run",
+            "type": "process",
+            "command": "cargo",
+            "args": [
+                "run", "--example", "hello"
+            ],
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Clean",
+            "type": "process",
+            "command": "cargo",
+            "args": ["clean"],
+            "problemMatcher": [],
+            "group": "build"
+        }
+    ]
+}

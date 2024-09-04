@@ -1,0 +1,22 @@
+[package]
+name = "multi-mono-font"
+version = "0.1.0"
+edition = "2021"
+authors = ["Merisy-Thing <merisy-thing@outlook.com>"]
+description = "Multi mono font mixed typesetting for embedded-graphics"
+readme = "README.md"
+keywords = ["embedded-graphics", "embedded", "font", "mono-font"]
+categories = ["embedded", "no-std"]
+license = "MIT"
+repository = "https://github.com/Merisy-Thing/multi_mono_font"
+
+[dependencies]
+const_for = "0.1.4"
+embedded-graphics = "0.8.1"
+
+[dev-dependencies]
+embedded-graphics-simulator = "0.6.0"
+
+[features]
+big-character-size = [] # character width or height big then 255
+defmt = []
