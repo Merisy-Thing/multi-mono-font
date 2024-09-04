@@ -11,7 +11,6 @@ license = "MIT"
 repository = "https://github.com/Merisy-Thing/multi-mono-font"
 
 [dependencies]
-const_for = "0.1.4"
 embedded-graphics = "0.8.1"
 
 [dev-dependencies]
