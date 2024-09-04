@@ -1,7 +1,7 @@
 # Rust HAL with C SDK Framework
 
 ## Introduction
----
+
 Multi mono font mixed typesetting for embedded-graphics
 
 This crate is modified based on [embedded-graphics MonoFonts](https://github.com/embedded-graphics/embedded-graphics/tree/master/src/mono_font) to add support for displaying different sizes of monospaced fonts within the same line/segment of text.
