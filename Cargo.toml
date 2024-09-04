@@ -8,7 +8,7 @@ readme = "README.md"
 keywords = ["embedded-graphics", "embedded", "font", "mono-font"]
 categories = ["embedded", "no-std"]
 license = "MIT"
-repository = "https://github.com/Merisy-Thing/multi_mono_font"
+repository = "https://github.com/Merisy-Thing/multi-mono-font"
 
 [dependencies]
 const_for = "0.1.4"
