@@ -1,4 +1,4 @@
-# Multi mono fon
+# Multi mono font
 
 ## Introduction
 
