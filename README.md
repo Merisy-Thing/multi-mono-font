@@ -8,7 +8,7 @@ This crate is modified based on [embedded-graphics MonoFonts](https://github.com
 
 The strikethrough and underline have been removed from the original fonts, and some variable types have been changed to u8 (can be changed to u16 via features) to save storage space.
 
-Check [examples/hello.rs](examples/hello.rs) for usage.
+Check [examples/mono.rs](examples/mono.rs) for usage.
 ```
 const MULTI_STYLE: MultiMonoTextStyle<Rgb565> = MultiMonoTextStyle::new(
     &[&UPPER_FONT, &HZ_FONT, &LOWER_FONT],
@@ -19,9 +19,22 @@ const MULTI_STYLE: MultiMonoTextStyle<Rgb565> = MultiMonoTextStyle::new(
 let _next = Text::new("测HElLo试OK\n", Point::new(0, 32), MULTI_STYLE)
 	.draw(&mut disp)
 	.unwrap();
+
 let _next = Text::new("字WoRlD体ok", _next, MULTI_STYLE)
 	.draw(&mut disp)
 	.unwrap();
+
+let rect = Rectangle::new(Point::new(52, 20), Size::new(64, 24));
+StaticText::with_style(
+	"HE字LL",
+	rect,
+	MULTI_STYLE,
+	Alignment::Center,
+	Baseline::Alphabetic,
+)
+.draw(&mut disp)
+.unwrap();
+rect.into_styled(RECT_STYLE).draw(&mut disp).unwrap();
 ```
 
 ![hello_img](examples/hello.png)

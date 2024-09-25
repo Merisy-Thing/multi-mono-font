@@ -3,6 +3,7 @@ mod draw_target;
 mod generated;
 pub mod mapping;
 mod multi_mono_text_style;
+mod static_text;
 mod sub_image;
 
 use core::fmt;
@@ -13,6 +14,7 @@ use mapping::StrGlyphMapping;
 pub use multi_mono_text_style::{
     MultiMonoLineHeight, MultiMonoTextStyle, MultiMonoTextStyleBuilder,
 };
+pub use static_text::StaticText;
 
 use embedded_graphics::{
     geometry::{OriginDimensions, Point},

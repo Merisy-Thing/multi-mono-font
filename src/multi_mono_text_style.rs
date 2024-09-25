@@ -83,7 +83,7 @@ pub struct MultiMonoTextStyle<'a, C> {
     pub fonts: &'a [&'a MultiMonoFont<'a>],
 
     ///Line height
-    pub line_height: u8,
+    pub line_height: ChSzTy,
 }
 
 impl<'a, C> MultiMonoTextStyle<'a, C>
@@ -92,12 +92,12 @@ where
 {
     /// Creates a text style with transparent background.
     pub const fn new(
-        font: &'a [&'a MultiMonoFont<'a>],
+        font_list: &'a [&'a MultiMonoFont<'a>],
         line_height: MultiMonoLineHeight,
         text_color: C,
     ) -> Self {
         MultiMonoTextStyleBuilder::new()
-            .font(font, line_height)
+            .font(font_list, line_height)
             .text_color(text_color)
             .build()
     }
@@ -145,8 +145,7 @@ where
                     target.fill_solid(
                         &Rectangle::new(
                             next_pos,
-                            CharSize::new(font.character_spacing, font.character_size.height)
-                                .size(),
+                            CharSize::new(font.character_spacing, self.line_height).size(),
                         ),
                         BinaryColor::Off,
                     )?;
@@ -225,16 +224,24 @@ where
     where
         D: DrawTarget<Color = Self::Color>,
     {
-        let offet_y = self.baseline_offset(baseline, self.fonts[0]);
+        let (offet_y, height) = match baseline {
+            Baseline::Top => (0, self.line_height),
+            Baseline::Bottom => (self.line_height.saturating_sub(1) as i32, self.line_height),
+            Baseline::Middle => (
+                (self.line_height.saturating_sub(1) / 2) as i32,
+                self.line_height,
+            ),
+            Baseline::Alphabetic => (
+                self.fonts[0].baseline as i32,
+                self.fonts[0].character_size.height,
+            ),
+        };
         let position = position - Point::new(0, offet_y);
 
         if width != 0 {
             if let Some(background_color) = self.background_color {
                 target.fill_solid(
-                    &Rectangle::new(
-                        position,
-                        Size::new(width, self.fonts[0].character_size.height as u32),
-                    ),
+                    &Rectangle::new(position, Size::new(width, height as u32)),
                     background_color,
                 )?;
             }
@@ -382,9 +389,14 @@ where
     /// Sets the font.
     pub const fn font<'b>(
         self,
-        fonts: &'b [&'b MultiMonoFont<'b>],
+        font_list: &'b [&'b MultiMonoFont<'b>],
         line_height: MultiMonoLineHeight,
     ) -> MultiMonoTextStyleBuilder<'b, C> {
+        let fonts = if font_list.len() == 0 {
+            &[&crate::NULL_FONT]
+        } else {
+            font_list
+        };
         let line_height = get_line_height(line_height, fonts);
         let style = MultiMonoTextStyle {
             fonts,
