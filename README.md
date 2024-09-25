@@ -9,7 +9,7 @@ This crate is modified based on [embedded-graphics MonoFonts](https://github.com
 The strikethrough and underline have been removed from the original fonts, and some variable types have been changed to u8 (can be changed to u16 via features) to save storage space.
 
 Check [examples/mono.rs](examples/mono.rs) for usage.
-```
+```rust
 const MULTI_STYLE: MultiMonoTextStyle<Rgb565> = MultiMonoTextStyle::new(
     &[&UPPER_FONT, &HZ_FONT, &LOWER_FONT],
     MultiMonoLineHeight::Max,
