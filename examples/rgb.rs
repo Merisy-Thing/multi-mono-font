@@ -15,7 +15,7 @@ const UPPER_FONT: MultiMonoFont = MultiMonoFont {
     image: ImageRaw::new(include_bytes!("fonts/upper.bin"), 96),
     glyph_mapping: &StrGlyphMapping::new("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26),
     character_size: CharSize::new(6, 12),
-    character_spacing: 0,
+    character_spacing: 2,
     baseline: 12,
 };
 
@@ -23,7 +23,7 @@ const LOWER_FONT: MultiMonoFont = MultiMonoFont {
     image: ImageRaw::new(include_bytes!("fonts/lower.bin"), 128),
     glyph_mapping: &StrGlyphMapping::new("abcdefghijklmnopqrstuvwxyz", 0),
     character_size: CharSize::new(16, 32),
-    character_spacing: 0,
+    character_spacing: 5,
     baseline: 32,
 };
 
@@ -31,25 +31,23 @@ const HZ_FONT: MultiMonoFont = MultiMonoFont {
     image: ImageRaw::new(include_bytes!("fonts/HZ.bin"), 192),
     glyph_mapping: &StrGlyphMapping::new("字体测试", 0),
     character_size: CharSize::new(24, 24),
-    character_spacing: 0,
+    character_spacing: 4,
     baseline: 24,
 };
 
-const MULTI_STYLE0: MultiMonoTextStyle<Rgb565> = MultiMonoTextStyleBuilder::new()
+const MULTI_STYLE0: MultiMonoTextStyle<Rgb565> = MultiMonoTextStyleBuilder::new(Rgb565::RED)
     .font(
         &[&UPPER_FONT, &HZ_FONT, &LOWER_FONT],
         MultiMonoLineHeight::Max,
     )
-    .text_color(Rgb565::RED)
     .background_color(Rgb565::GREEN)
     .build();
 
-const MULTI_STYLE1: MultiMonoTextStyle<Rgb565> = MultiMonoTextStyleBuilder::new()
+const MULTI_STYLE1: MultiMonoTextStyle<Rgb565> = MultiMonoTextStyleBuilder::new(Rgb565::YELLOW)
     .font(
         &[&UPPER_FONT, &LOWER_FONT, &HZ_FONT],
         MultiMonoLineHeight::Specify(20),
     )
-    .text_color(Rgb565::YELLOW)
     .background_color(Rgb565::BLUE)
     .build();
 

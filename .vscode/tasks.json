@@ -7,7 +7,7 @@
             "type": "process",
             "command": "cargo",
             "args": [
-                "run", "--example", "mono"
+                "run", "--example", "rgb"
             ],
             "problemMatcher": [
                 "$rustc"

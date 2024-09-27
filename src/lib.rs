@@ -1,3 +1,5 @@
+#![no_std]
+
 mod char_size;
 mod draw_target;
 mod generated;

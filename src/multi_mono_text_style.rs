@@ -14,7 +14,7 @@ use embedded_graphics::{
 
 use crate::{
     char_size::CharSize,
-    draw_target::{Background, Both, Foreground, MonoFontDrawTarget},
+    draw_target::MultiMonoFontDrawTarget,
     ChSzTy, MultiMonoFont,
 };
 
@@ -74,7 +74,7 @@ const fn get_line_height<'a>(
 #[non_exhaustive]
 pub struct MultiMonoTextStyle<'a, C> {
     /// Text color.
-    pub text_color: Option<C>,
+    pub text_color: C,
 
     /// Background color.
     pub background_color: Option<C>,
@@ -96,19 +96,9 @@ where
         line_height: MultiMonoLineHeight,
         text_color: C,
     ) -> Self {
-        MultiMonoTextStyleBuilder::new()
+        MultiMonoTextStyleBuilder::new(text_color)
             .font(font_list, line_height)
-            .text_color(text_color)
             .build()
-    }
-
-    /// Returns `true` if the style is transparent.
-    ///
-    /// Drawing a `Text` with a transparent `MultiMonoTextStyle` will not draw any pixels.
-    ///
-    /// [`Text`]: super::text::Text
-    pub fn is_transparent(&self) -> bool {
-        self.text_color.is_none() && self.background_color.is_none()
     }
 
     fn get_font_info(&self, c: char) -> &MultiMonoFont<'a> {
@@ -141,11 +131,12 @@ where
             Image::new(&glyph, draw_pos).draw(&mut target)?;
             next_pos.x += font.character_size.width as i32;
             if font.character_spacing > 0 {
+                draw_pos.x += font.character_size.width as i32;
                 if self.background_color.is_some() {
                     target.fill_solid(
                         &Rectangle::new(
-                            next_pos,
-                            CharSize::new(font.character_spacing, self.line_height).size(),
+                            draw_pos,
+                            CharSize::new(font.character_spacing, font.character_size.height).size(),
                         ),
                         BinaryColor::Off,
                     )?;
@@ -184,34 +175,12 @@ where
     where
         D: DrawTarget<Color = Self::Color>,
     {
-        let next = match (self.text_color, self.background_color) {
-            (Some(text_color), Some(background_color)) => self.draw_string_binary(
-                text,
-                position,
-                baseline,
-                MonoFontDrawTarget::new(target, Both(text_color, background_color)),
-            )?,
-            (Some(text_color), None) => self.draw_string_binary(
-                text,
-                position,
-                baseline,
-                MonoFontDrawTarget::new(target, Foreground(text_color)),
-            )?,
-            (None, Some(background_color)) => self.draw_string_binary(
-                text,
-                position,
-                baseline,
-                MonoFontDrawTarget::new(target, Background(background_color)),
-            )?,
-            (None, None) => {
-                let tm = self.measure_string(text, position, baseline);
-                let dx = tm.bounding_box.size.width;
-
-                position + Size::new(dx, 0)
-            }
-        };
-
-        Ok(next)
+        self.draw_string_binary(
+            text,
+            position,
+            baseline,
+            MultiMonoFontDrawTarget::new(target, self.text_color, self.background_color),
+        )
     }
 
     fn draw_whitespace<D>(
@@ -285,7 +254,9 @@ where
     type Color = C;
 
     fn set_text_color(&mut self, text_color: Option<Self::Color>) {
-        self.text_color = text_color;
+        if let Some(color) = text_color {
+            self.text_color = color;
+        }
     }
 
     fn set_background_color(&mut self, background_color: Option<Self::Color>) {
@@ -375,12 +346,12 @@ where
     C: PixelColor,
 {
     /// Creates a new text style builder.
-    pub const fn new() -> Self {
+    pub const fn new(text_color: C) -> Self {
         Self {
             style: MultiMonoTextStyle {
                 fonts: &[&super::NULL_FONT],
                 background_color: None,
-                text_color: None,
+                text_color,
                 line_height: 0,
             },
         }
@@ -408,13 +379,6 @@ where
         MultiMonoTextStyleBuilder { style }
     }
 
-    /// Resets the text color to transparent.
-    pub const fn reset_text_color(mut self) -> Self {
-        self.style.text_color = None;
-
-        self
-    }
-
     /// Resets the background color to transparent.
     pub const fn reset_background_color(mut self) -> Self {
         self.style.background_color = None;
@@ -424,7 +388,7 @@ where
 
     /// Sets the text color.
     pub const fn text_color(mut self, text_color: C) -> Self {
-        self.style.text_color = Some(text_color);
+        self.style.text_color = text_color;
 
         self
     }

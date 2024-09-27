@@ -37,12 +37,11 @@ const HZ_FONT: MultiMonoFont = MultiMonoFont {
     baseline: 24,
 };
 
-const MULTI_STYLE: MultiMonoTextStyle<Rgb565> = MultiMonoTextStyleBuilder::new()
+const MULTI_STYLE: MultiMonoTextStyle<Rgb565> = MultiMonoTextStyleBuilder::new(Rgb565::WHITE)
     .font(
         &[&UPPER_FONT, &HZ_FONT, &LOWER_FONT],
         MultiMonoLineHeight::Max,
     )
-    .text_color(Rgb565::WHITE)
     .background_color(Rgb565::BLACK)
     .build();
 

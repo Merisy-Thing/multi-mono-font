@@ -1,6 +1,6 @@
 [package]
 name = "multi-mono-font"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2021"
 authors = ["Merisy-Thing <merisy-thing@outlook.com>"]
 description = "Multi mono font mixed typesetting for embedded-graphics"

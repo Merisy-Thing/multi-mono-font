@@ -77,20 +77,17 @@ impl<S: Clone> Transform for StaticText<'_, S> {
 }
 
 impl<S: TextRenderer> StaticText<'_, S> {
-    /// Returns the vertical offset between the line position and the top edge of the bounding box.
-    fn baseline_offset_point(&self) -> Point {
-        let mut point = self.rectangle.top_left;
+    fn lines(&self) -> impl Iterator<Item = (&str, Point)> {
+        let line_feed = self.text.matches('\n').count() as i32;
+
+        let offset_y = self.character_style.line_height() as i32 * line_feed;
+        let mut position = self.rectangle.top_left;
         let height = self.rectangle.size.height as i32;
         match self.baseline {
             Baseline::Top => {}
-            Baseline::Bottom | Baseline::Alphabetic => point.y += height - 1,
-            Baseline::Middle => point.y += (height - 1) / 2,
+            Baseline::Bottom | Baseline::Alphabetic => position.y += height - 1 - offset_y,
+            Baseline::Middle => position.y += (height - 1 - offset_y) / 2,
         }
-        point
-    }
-
-    fn lines(&self) -> impl Iterator<Item = (&str, Point)> {
-        let mut position = self.baseline_offset_point();
 
         self.text.split('\n').map(move |line| {
             let p = match self.alignment {
