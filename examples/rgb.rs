@@ -28,7 +28,7 @@ const LOWER_FONT: MultiMonoFont = MultiMonoFont {
 };
 
 const HZ_FONT: MultiMonoFont = MultiMonoFont {
-    image: ImageRaw::new(include_bytes!("fonts/HZ.bin"), 192),
+    image: ImageRaw::new(include_bytes!("fonts/HZ.bin"), 96),
     glyph_mapping: &StrGlyphMapping::new("字体测试", 0),
     character_size: CharSize::new(24, 24),
     character_spacing: 4,

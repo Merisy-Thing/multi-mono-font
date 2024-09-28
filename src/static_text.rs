@@ -104,7 +104,7 @@ impl<S: TextRenderer> StaticText<'_, S> {
                         self.character_style
                             .measure_string(line, Point::zero(), self.baseline);
                     position + Point::new(self.rectangle.size.width as i32 / 2, 0)
-                        - (metrics.next_position - Point::new(1, 0)) / 2
+                        - metrics.next_position / 2
                 }
             };
 
