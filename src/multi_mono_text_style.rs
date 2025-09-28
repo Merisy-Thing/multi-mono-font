@@ -12,11 +12,7 @@ use embedded_graphics::{
     Drawable,
 };
 
-use crate::{
-    char_size::CharSize,
-    draw_target::MultiMonoFontDrawTarget,
-    ChSzTy, MultiMonoFont,
-};
+use crate::{char_size::CharSize, draw_target::MultiMonoFontDrawTarget, ChSzTy, MultiMonoFont};
 
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub enum MultiMonoLineHeight {
@@ -136,7 +132,8 @@ where
                     target.fill_solid(
                         &Rectangle::new(
                             draw_pos,
-                            CharSize::new(font.character_spacing, font.character_size.height).size(),
+                            CharSize::new(font.character_spacing, font.character_size.height)
+                                .size(),
                         ),
                         BinaryColor::Off,
                     )?;

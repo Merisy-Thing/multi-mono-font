@@ -61,7 +61,7 @@ pub struct MultiMonoFont<'a> {
 
 impl MultiMonoFont<'_> {
     /// Returns a subimage for a glyph.
-    pub(crate) fn glyph(&self, c: char) -> SubImage<'_, ImageRaw<BinaryColor>> {
+    pub(crate) fn glyph(&self, c: char) -> SubImage<'_, ImageRaw<'_, BinaryColor>> {
         if self.character_size.width == 0
             || self.image.size().width < self.character_size.width as u32
         {

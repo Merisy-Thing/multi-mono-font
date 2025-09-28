@@ -1,7 +1,8 @@
 use embedded_graphics::{
     draw_target::DrawTarget,
     geometry::Point,
-    primitives::Rectangle,
+    prelude::{PixelColor, Primitive},
+    primitives::{PrimitiveStyle, Rectangle},
     text::{renderer::TextRenderer, Alignment, Baseline},
     transform::Transform,
     Drawable,
@@ -58,6 +59,24 @@ impl<'a, S> StaticText<'a, S> {
             alignment,
             baseline,
         }
+    }
+
+    pub fn fill_with_style<C, D>(
+        &self,
+        style: PrimitiveStyle<C>,
+        target: &mut D,
+    ) -> Result<Point, D::Error>
+    where
+        C: PixelColor,
+        D: DrawTarget<Color = C>,
+    {
+        let result = self.rectangle.into_styled(style).draw(target);
+        result.map(|_| {
+            Point::new(
+                self.rectangle.top_left.x + self.rectangle.size.width as i32,
+                self.rectangle.top_left.y,
+            )
+        })
     }
 }
 
@@ -117,6 +136,31 @@ impl<S: TextRenderer> StaticText<'_, S> {
             } else {
                 (line, p)
             }
+        })
+    }
+
+    pub fn clear<D>(&self, target: &mut D) -> Result<Point, D::Error>
+    where
+        D: DrawTarget<Color = S::Color>,
+    {
+        self.character_style.draw_whitespace(
+            self.rectangle.size.width,
+            self.rectangle.top_left,
+            self.baseline,
+            target,
+        )
+    }
+
+    pub fn clear_by_color<C, D>(&self, color: C, target: &mut D) -> Result<Point, D::Error>
+    where
+        C: PixelColor,
+        D: DrawTarget<Color = C>,
+    {
+        target.fill_solid(&self.rectangle, color).map(|_| {
+            Point::new(
+                self.rectangle.top_left.x + self.rectangle.size.width as i32,
+                self.rectangle.top_left.y,
+            )
         })
     }
 }

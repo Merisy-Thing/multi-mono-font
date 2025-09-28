@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.3.3 - 2025-09-28
+ - add fill_with_style, clear and clear_by_color method for StaticText
+
 ## 0.3.2 - 2024-09-28
  - fix StaticText Alignment::Center x offset
 
