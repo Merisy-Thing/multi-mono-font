@@ -18,6 +18,8 @@ pub use multi_mono_text_style::{
 };
 pub use static_text::StaticText;
 
+pub type MultiMonoFontList<'a> = &'a [&'a MultiMonoFont<'a>];
+
 use embedded_graphics::{
     geometry::{OriginDimensions, Point},
     image::ImageRaw,

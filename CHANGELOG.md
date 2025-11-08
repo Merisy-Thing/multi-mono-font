@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0 - 2025-11-8
+ - add iso_8859_10 font
+ - MultiMonoTextStyle::new remove "line_height" param
+ - add MultiMonoTextStyle::new_with_line_height method
+
 ## 0.3.3 - 2025-09-28
  - add fill_with_style, clear and clear_by_color method for StaticText
 

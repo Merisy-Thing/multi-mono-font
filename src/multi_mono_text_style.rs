@@ -12,7 +12,10 @@ use embedded_graphics::{
     Drawable,
 };
 
-use crate::{char_size::CharSize, draw_target::MultiMonoFontDrawTarget, ChSzTy, MultiMonoFont};
+use crate::{
+    char_size::CharSize, draw_target::MultiMonoFontDrawTarget, ChSzTy, MultiMonoFont,
+    MultiMonoFontList,
+};
 
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub enum MultiMonoLineHeight {
@@ -23,7 +26,7 @@ pub enum MultiMonoLineHeight {
 
 const fn get_line_height<'a>(
     fonts_height: MultiMonoLineHeight,
-    fonts: &'a [&'a MultiMonoFont<'a>],
+    fonts: MultiMonoFontList<'a>,
 ) -> ChSzTy {
     let mut idx = 0;
     match fonts_height {
@@ -76,7 +79,7 @@ pub struct MultiMonoTextStyle<'a, C> {
     pub background_color: Option<C>,
 
     /// Font.
-    pub fonts: &'a [&'a MultiMonoFont<'a>],
+    pub fonts: MultiMonoFontList<'a>,
 
     ///Line height
     pub line_height: ChSzTy,
@@ -87,8 +90,14 @@ where
     C: PixelColor,
 {
     /// Creates a text style with transparent background.
-    pub const fn new(
-        font_list: &'a [&'a MultiMonoFont<'a>],
+    pub const fn new(font_list: MultiMonoFontList<'a>, text_color: C) -> Self {
+        MultiMonoTextStyleBuilder::new(text_color)
+            .font(font_list, MultiMonoLineHeight::Max)
+            .build()
+    }
+
+    pub const fn new_with_line_height(
+        font_list: MultiMonoFontList<'a>,
         line_height: MultiMonoLineHeight,
         text_color: C,
     ) -> Self {
