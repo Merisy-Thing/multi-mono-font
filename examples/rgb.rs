@@ -1,14 +1,14 @@
 use embedded_graphics::{
-    image::ImageRaw,
-    pixelcolor::Rgb565,
+    image::{Image, ImageRaw},
+    pixelcolor::{BinaryColor, Rgb565},
     prelude::*,
     primitives::{PrimitiveStyle, PrimitiveStyleBuilder, Rectangle},
     text::{Alignment, Baseline, Text},
 };
 use embedded_graphics_simulator::{OutputSettingsBuilder, SimulatorDisplay, Window};
 use multi_mono_font::{
-    mapping::StrGlyphMapping, CharSize, MultiMonoFont, MultiMonoLineHeight, MultiMonoTextStyle,
-    MultiMonoTextStyleBuilder, StaticText,
+    mapping::StrGlyphMapping, CharSize, MonoImage, MultiMonoFont, MultiMonoLineHeight,
+    MultiMonoTextStyle, MultiMonoTextStyleBuilder, StaticText,
 };
 
 const UPPER_FONT: MultiMonoFont = MultiMonoFont {
@@ -51,6 +51,9 @@ const MULTI_STYLE1: MultiMonoTextStyle<Rgb565> = MultiMonoTextStyleBuilder::new(
     .background_color(Rgb565::BLUE)
     .build();
 
+const IMG_BAT: ImageRaw<BinaryColor> =
+    ImageRaw::<BinaryColor>::new(include_bytes!("fonts/battery.bin"), 29);
+
 fn main() -> Result<(), core::convert::Infallible> {
     let mut disp = SimulatorDisplay::<Rgb565>::new(Size::new(160, 80));
 
@@ -78,6 +81,11 @@ fn main() -> Result<(), core::convert::Infallible> {
     .draw(&mut disp)
     .unwrap();
     rect.into_styled(RECT_STYLE).draw(&mut disp).unwrap();
+
+    let _img_bat = MonoImage::new(&IMG_BAT, Rgb565::MAGENTA).with_background_color(Rgb565::WHITE);
+    Image::new(&_img_bat, Point::new(128, 4))
+        .draw(&mut disp)
+        .unwrap();
 
     let output_settings = OutputSettingsBuilder::new().scale(3).build();
     let mut win = Window::new("HelloWorld", &output_settings);

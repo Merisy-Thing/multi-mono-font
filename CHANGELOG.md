@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.1 - 2025-12-8
+ - Add MonoImage to draw binary image
+
 ## 0.4.0 - 2025-11-8
  - add iso_8859_10 font
  - MultiMonoTextStyle::new remove "line_height" param

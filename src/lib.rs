@@ -4,6 +4,7 @@ mod char_size;
 mod draw_target;
 mod generated;
 pub mod mapping;
+mod mono_image;
 mod multi_mono_text_style;
 mod static_text;
 mod sub_image;
@@ -13,6 +14,7 @@ use core::fmt;
 pub use char_size::CharSize;
 pub use generated::*;
 use mapping::StrGlyphMapping;
+pub use mono_image::MonoImage;
 pub use multi_mono_text_style::{
     MultiMonoLineHeight, MultiMonoTextStyle, MultiMonoTextStyleBuilder,
 };
