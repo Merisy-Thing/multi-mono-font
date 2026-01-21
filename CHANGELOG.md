@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.2 - 2026-1-13
+ - Add Framebuffer
+ - Add Scalable trait
+
 ## 0.4.1 - 2025-12-8
  - Add MonoImage to draw binary image
 

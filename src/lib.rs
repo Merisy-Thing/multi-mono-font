@@ -2,6 +2,7 @@
 
 mod char_size;
 mod draw_target;
+mod framebuf;
 mod generated;
 pub mod mapping;
 mod mono_image;
@@ -12,6 +13,7 @@ mod sub_image;
 use core::fmt;
 
 pub use char_size::CharSize;
+pub use framebuf::{BulkFlushTarget, Framebuffer};
 pub use generated::*;
 use mapping::StrGlyphMapping;
 pub use mono_image::MonoImage;
@@ -34,6 +36,13 @@ use sub_image::SubImage;
 pub type ChSzTy = u8;
 #[cfg(feature = "big-character-size")]
 pub type ChSzTy = u16;
+
+/// A trait for objects that can be scaled.
+pub trait Scalable {
+    type T;
+    fn set_scale(&mut self, scale: Self::T);
+    fn get_scale(&self) -> Self::T;
+}
 
 /// Monospaced bitmap font.
 ///

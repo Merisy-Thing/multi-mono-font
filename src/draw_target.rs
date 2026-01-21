@@ -35,12 +35,10 @@ impl<T: DrawTarget> DrawTarget for MultiMonoFontDrawTarget<'_, T, T::Color> {
                 .map(|Pixel(pos, pixel_color)| {
                     let color = if pixel_color.is_on() {
                         self.text_color
+                    } else if let Some(background_color) = self.background_color {
+                        background_color
                     } else {
-                        if let Some(background_color) = self.background_color {
-                            background_color
-                        } else {
-                            self.text_color
-                        }
+                        self.text_color
                     };
                     Pixel(pos, color)
                 }),

@@ -369,7 +369,7 @@ where
         font_list: &'b [&'b MultiMonoFont<'b>],
         line_height: MultiMonoLineHeight,
     ) -> MultiMonoTextStyleBuilder<'b, C> {
-        let fonts = if font_list.len() == 0 {
+        let fonts = if font_list.is_empty() {
             &[&crate::NULL_FONT]
         } else {
             font_list
