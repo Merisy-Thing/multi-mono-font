@@ -1,6 +1,6 @@
 [package]
 name = "multi-mono-font"
-version = "0.4.2"
+version = "0.4.3"
 edition = "2021"
 authors = ["Merisy-Thing <merisy-thing@outlook.com>"]
 description = "Multi mono font mixed typesetting for embedded-graphics"
@@ -12,6 +12,7 @@ repository = "https://github.com/Merisy-Thing/multi-mono-font"
 
 [dependencies]
 embedded-graphics = "0.8.1"
+log = { version = "0.4", default-features = false }
 
 [dev-dependencies]
 embedded-graphics-simulator = "0.7.0"

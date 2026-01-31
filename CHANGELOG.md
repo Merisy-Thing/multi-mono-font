@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.3 - 2026-1-31
+ - Fix Framebuffer bounding_box() method
+
 ## 0.4.2 - 2026-1-13
  - Add Framebuffer
  - Add Scalable trait
