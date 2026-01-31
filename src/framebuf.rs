@@ -3,20 +3,17 @@ use embedded_graphics::prelude::*;
 use embedded_graphics::primitives::Rectangle;
 use embedded_graphics::Pixel;
 
-pub trait BulkFlushTarget {
-    type Color: PixelColor;
-    type Error;
-
+pub trait BulkFlushTarget: DrawTarget {
     /// Flushes the buffer to the target.
     fn flush(&mut self, area: &Rectangle, data: &[Self::Color]) -> Result<(), Self::Error>;
 }
 
-pub struct Framebuffer<'a, COL: PixelColor, DRAW: DrawTarget<Color = COL> + BulkFlushTarget> {
+pub struct Framebuffer<'a, COL: PixelColor, DRAW: BulkFlushTarget<Color = COL>> {
     target: &'a mut DRAW,
     fb: FramebufferInner<'a, COL>,
 }
 
-impl<'a, COL: PixelColor, DRAW: DrawTarget<Color = COL> + BulkFlushTarget>
+impl<'a, COL: PixelColor, DRAW: BulkFlushTarget<Color = COL>>
     Framebuffer<'a, COL, DRAW>
 {
     /// Creates a new [Framebuffer] instance based on the provided [DrawTarget].
@@ -28,7 +25,7 @@ impl<'a, COL: PixelColor, DRAW: DrawTarget<Color = COL> + BulkFlushTarget>
     }
 }
 
-impl<'a, COL: PixelColor, DRAW: DrawTarget<Color = COL> + BulkFlushTarget<Color = COL>> Dimensions
+impl<'a, COL: PixelColor, DRAW: BulkFlushTarget<Color = COL>> Dimensions
     for Framebuffer<'a, COL, DRAW>
 {
     fn bounding_box(&self) -> Rectangle {
@@ -36,7 +33,7 @@ impl<'a, COL: PixelColor, DRAW: DrawTarget<Color = COL> + BulkFlushTarget<Color 
     }
 }
 
-impl<'a, COL: PixelColor, DRAW: DrawTarget<Color = COL> + BulkFlushTarget<Color = COL>> DrawTarget
+impl<'a, COL: PixelColor, DRAW: BulkFlushTarget<Color = COL>> DrawTarget
     for Framebuffer<'a, COL, DRAW>
 {
     type Color = COL;

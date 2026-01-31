@@ -1,7 +1,8 @@
 # Changelog
 
-## 0.4.3 - 2026-1-31
+## 0.4.4 - 2026-1-31
  - Fix Framebuffer bounding_box() method
+ - let BulkFlushTarget base on DrawTarget 
 
 ## 0.4.2 - 2026-1-13
  - Add Framebuffer
