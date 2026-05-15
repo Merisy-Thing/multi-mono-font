@@ -3,11 +3,26 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Run",
+            "label": "Run rgb",
             "type": "process",
             "command": "cargo",
             "args": [
-                "run", "--example", "rgb"
+                "run", "--example", "rgb", "--features", "log,font-rawimg"
+            ],
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Run RLE",
+            "type": "process",
+            "command": "cargo",
+            "args": [
+                "run", "--example", "rle_enc", "--features", "log,font-rle"
             ],
             "problemMatcher": [
                 "$rustc"
@@ -16,6 +31,17 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "Run Img Stack",
+            "type": "process",
+            "command": "cargo",
+            "args": [
+                "run", "--example", "img_stack"
+            ],
+            "problemMatcher": [
+                "$rustc"
+            ],
         },
         {
             "label": "Clean",

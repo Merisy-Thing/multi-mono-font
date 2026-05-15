@@ -9,12 +9,12 @@ use embedded_graphics_simulator::{
     BinaryColorTheme, OutputSettingsBuilder, SimulatorDisplay, Window,
 };
 use multi_mono_font::{
-    mapping::StrGlyphMapping, CharSize, MultiMonoFont, MultiMonoLineHeight, MultiMonoTextStyle,
-    MultiMonoTextStyleBuilder, StaticText,
+    CharSize, GlyphData, MultiMonoFont, MultiMonoLineHeight, MultiMonoTextStyle,
+    MultiMonoTextStyleBuilder, StaticText, mapping::StrGlyphMapping,
 };
 
 const UPPER_FONT: MultiMonoFont = MultiMonoFont {
-    image: ImageRaw::new(include_bytes!("fonts/upper.bin"), 96),
+    glyph_data: GlyphData::ImgRaw(ImageRaw::new(include_bytes!("fonts/upper.bin"), 96)),
     glyph_mapping: &StrGlyphMapping::new("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26),
     character_size: CharSize::new(6, 12),
     character_spacing: 0,
@@ -22,7 +22,7 @@ const UPPER_FONT: MultiMonoFont = MultiMonoFont {
 };
 
 const LOWER_FONT: MultiMonoFont = MultiMonoFont {
-    image: ImageRaw::new(include_bytes!("fonts/lower.bin"), 128),
+    glyph_data: GlyphData::ImgRaw(ImageRaw::new(include_bytes!("fonts/lower.bin"), 128)),
     glyph_mapping: &StrGlyphMapping::new("abcdefghijklmnopqrstuvwxyz", 0),
     character_size: CharSize::new(16, 32),
     character_spacing: 0,
@@ -30,7 +30,7 @@ const LOWER_FONT: MultiMonoFont = MultiMonoFont {
 };
 
 const HZ_FONT: MultiMonoFont = MultiMonoFont {
-    image: ImageRaw::new(include_bytes!("fonts/HZ.bin"), 96),
+    glyph_data: GlyphData::ImgRaw(ImageRaw::new(include_bytes!("fonts/HZ.bin"), 96)),
     glyph_mapping: &StrGlyphMapping::new("字体测试", 0),
     character_size: CharSize::new(24, 24),
     character_spacing: 0,

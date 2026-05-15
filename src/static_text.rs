@@ -1,11 +1,11 @@
 use embedded_graphics::{
+    Drawable,
     draw_target::DrawTarget,
     geometry::Point,
     prelude::{PixelColor, Primitive},
     primitives::{PrimitiveStyle, Rectangle},
-    text::{renderer::TextRenderer, Alignment, Baseline},
+    text::{Alignment, Baseline, renderer::TextRenderer},
     transform::Transform,
-    Drawable,
 };
 
 /// StaticText drawable.

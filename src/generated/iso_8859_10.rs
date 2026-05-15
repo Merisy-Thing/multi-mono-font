@@ -16,14 +16,14 @@
 //! | `FONT_7X13` | ![FONT_7X13](data:image/png;base64,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) | | `FONT_9X18_BOLD` | ![FONT_9X18_BOLD](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAADYCAAAAAAhJjVlAAAILklEQVR4nO1di3bjKgxE///R2m6T2HqMhHjETXvce/fESYw9BiGGkSDUPuzvBjQEiJ9vv165DvU89XnEK4+ZAzqRHS9fr/z9z8JAB6N/XwVrgPgJ/vv9cUC7Af0vVwL0eHn9HwESMNxHNYghoPP9o2ZUyz2rzFuZBcSiYAnQ90kpINVkZAzX3cLVEJ9WWgH0OKcGSCCy1p0AepVi34E47FKUYz6K8fF6WlX8ODM19DyFeidp42FhUt7iVmzodUapyViAaLq7weLpgb+Hglw3au0SgQ2VOnkE6ChS9WD1fts5t3ehqwfX7oPd9OMGdAO6AhA3T1/EYCS/9KMbw+vMPOijFOkhHXBqxTfYE1czdrUeJY8owrMUHRc7KQbLW1smQQme13UocYDRkPwqRX5kRsOAYIoRIH0OB43IGa/TgPx3eig+begwL0eqBXoMSJwKuJJpMkjTTUvAT0wtarSFkUxdJwBkoGnGybBU0qQ5Iv1cGBAwJoN2EpDsI62hmxKYnqrXqKVgKY7mJtwipPY9CRfTDl74+krSVD/9CNwpPgc7MG+2Vw0d5dk1fRiee7S/Ad2ArgAkhkIWft0JKopDeqKoeJVwiJpyQbcviQQB+uL5luddjullrAEVf1IU971QN9Cz5hwkuiMWZswoc9Q0OUD8/78lQGa094AsF3vcVeg7EJAVXyAgyxj9Q0NAFNertjMNSOAYqSFuvSYDNSQttFtDF9iQLWWMGhr8KiB4wy6gjm9Y6fb4Wl1AyHQqjlG0SuQYucGvcMUdjvEey25AN6Ab0Bv+vBzC0b1JEcZm4lwsSSWWydwBC0XJ0Aagcrk5JAH9oDM8lQFZmgRVFVtV1L2HKR6erJ7HKE0xIBcJnAWUKYpIM/FiTCAlUjQma0kxBcSHUoSoAPyghfoDGTJq5zGhTFYChNW3LiDIc6nlgATrYCC8BzOBvuinAbHpdyVAom+zb9+odxUAVbq91n4JTvn2AXqZU2LUSr48p98cUFg3n4L1lw8d/I7RpD90HJLrPdrfgDYA4o9CVc7HurTJPglRPczmk3M6CVaeDsXEdQMgF3quAJrMjlkGlJQcAuQovVU9KJbySJ9Cql0FfWBEEeRojYLWBSYPoo4VBU1H1J2cx0COqShoLuugD8hEOFmn+hnByoy4HUDWnb4R0JDG6LvybJMNAyrYUGutFlpIACEbcv2l3ssomrQw/IptAgeFvWyCDFLmuYZHpb8HKM48aVOpVjdjvAH9EkA2YhZb+1WiZ7RMhqWfHHGMa7Q7BCSyAwP6cT0gmbL5DOA1GfY/ArM1WRiMSjBwFq9sMsCNLHxGkYuyMCvqEZAByKmDtTM1ahFrjHrxhk1oTKQrDpSgFFBBhVU5q+xVNmplQC6PEQDS1teAxpjWEA4ZVwBBwmRJIORTYiESkB+pDQBqkh+SJ3+GWrjAzJHbg0i+X6zU99SqyTb5m/5FCjPX7YCYVi7yjhrat6z0z9MPT/L7tJ+G7zEykwiXtw0CchMJVr5m4CmYep/Ye324DbHPTwczae0GuQVza0FnlBNuLRMUkI7pA1aIeqbZU4lAE6xRKQFK1g8kA2gSQ04BPUr0AYXkXGWXdlaCiIYCjlgmNCJh1UsuwWyhYYrQ3DqZOPbrEhqxCmtzFJMaSjLwPJ0ywUYCCY24hgZtqA4Ir4kvSXp9QGalRwVQQBPLgDrdPphaJN0eM3vW8zJs8GXHqFd6aQoK5gjeG5s0SOoQmT7549aWd7MQl+wBGqOjS4jY+SE0ylOyLmuY61TICo0SmhWuc1PYTYDSmr48Pky5LS7rVBMkvwPI794C99gwEedwxlwh+bBUs1lLTZP81GWJ8l5oehPJ7/hQbjTZ8ogP+TAZtxbRIDyWqOuYDyLGSNAxOvIej/aM15eynZRQQqlzCjsGqLmsNAgIUmo+Gigl+TrEWQZknl0LV7GWNknQWpAjGW/RxGDngljImwyTZxQ2BoRX0NQBwdCzI4qWMQalzS4BbL8CdlJgjGO7L1zAGHNAP8MYQ2f+Q4xxiEy+gzGyWvBaw4FqqL7vmb1XtCvIOdjXdz1J90EIk75NhARqFCrqqHHk7Clxfxxko9sr07rpbOfUohVHDhy3cPvtdA+Qy412eCkd+ChdZbVw/uU0oHhJwN8D5HtQ+QBqPwETNnvypID6F4jH/0+pIU8mtwEayhZM6PbHAdrW7VcAvckxLv6txKC79OOPAEpo5fAtfp+k1+eQk8Wry7miCyYcMiWRnRGwBmiEQ6Zx6njDa74obXBdI0XLSgdHWVWq5lfhKmBu5+46XFyYXfTdU4D4pQ85yegCQDaoRRGgYCVB9YDLgyNY6/ACpNba1q+4CggkRoItNAfrHKyF4WlAsMkWD+YAZTa0CqjeJ4IcUJ0LO4dDb4DFVZKeAlpyjEHWYmF+5wF5sWHF848ss6vTjz3xul2AlkXCBaKIa4g/gEHeUenfDugHZGGmBNCULIz2l6jLwnaX7lFZGAr4Xg8ty8Lu9y4+egvNQQXN/vrKqABnw9xN7i3M4wd2ijXGEVIVdiOgKrK+6Dl64PenhPt1RgfbFTS4OfZPaozgB2b22dBskxFn2xcUZe5bY7w1xpug3YCo+gMk22XhoAtSy2c/b5OFM50aZU++WxYOk+Jp44R1pmURoCZ1lRH5AmkmMzKXkmTNeFkXeODGe3M6k7rnNgWtu891vN+m2q5nJyAe0BgRIGp7AQ1pjEM1dIENoV8ketkQCKMMJoF8lzfR6R7zbAy2t9+qMTKNXSZxjJsQDV2FqQLoSo2xFlH8BI3xH4CVN2/uJiNpAAAAAElFTkSuQmCC) |
 //! | `FONT_7X13_BOLD` | ![FONT_7X13_BOLD](data:image/png;base64,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) | | `FONT_10X20` | ![FONT_10X20](data:image/png;base64,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) |
 
-use crate::char_size::CharSize;
+use crate::{GlyphData, char_size::CharSize};
 
 /// 4x6 pixel monospace font.
 pub const FONT_4X6: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_4x6.raw"),
         64,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(4, 6),
     character_spacing: 0,
@@ -32,10 +32,10 @@ pub const FONT_4X6: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 5x7 pixel monospace font.
 pub const FONT_5X7: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_5x7.raw"),
         80,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(5, 7),
     character_spacing: 0,
@@ -44,10 +44,10 @@ pub const FONT_5X7: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 5x8 pixel monospace font.
 pub const FONT_5X8: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_5x8.raw"),
         80,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(5, 8),
     character_spacing: 0,
@@ -56,10 +56,10 @@ pub const FONT_5X8: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 6x9 pixel monospace font.
 pub const FONT_6X9: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_6x9.raw"),
         96,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(6, 9),
     character_spacing: 0,
@@ -68,10 +68,10 @@ pub const FONT_6X9: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 6x10 pixel monospace font.
 pub const FONT_6X10: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_6x10.raw"),
         96,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(6, 10),
     character_spacing: 0,
@@ -80,10 +80,10 @@ pub const FONT_6X10: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 6x12 pixel monospace font.
 pub const FONT_6X12: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_6x12.raw"),
         96,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(6, 12),
     character_spacing: 0,
@@ -92,10 +92,10 @@ pub const FONT_6X12: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 6x13 pixel monospace font.
 pub const FONT_6X13: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_6x13.raw"),
         96,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(6, 13),
     character_spacing: 0,
@@ -104,10 +104,10 @@ pub const FONT_6X13: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 6x13 pixel monospace font.
 pub const FONT_6X13_BOLD: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_6x13_bold.raw"),
         96,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(6, 13),
     character_spacing: 0,
@@ -116,10 +116,10 @@ pub const FONT_6X13_BOLD: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 6x13 pixel monospace font.
 pub const FONT_6X13_ITALIC: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_6x13_italic.raw"),
         96,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(6, 13),
     character_spacing: 0,
@@ -128,10 +128,10 @@ pub const FONT_6X13_ITALIC: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 7x13 pixel monospace font.
 pub const FONT_7X13: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_7x13.raw"),
         112,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(7, 13),
     character_spacing: 0,
@@ -140,10 +140,10 @@ pub const FONT_7X13: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 7x13 pixel monospace font.
 pub const FONT_7X13_BOLD: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_7x13_bold.raw"),
         112,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(7, 13),
     character_spacing: 0,
@@ -152,10 +152,10 @@ pub const FONT_7X13_BOLD: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 7x13 pixel monospace font.
 pub const FONT_7X13_ITALIC: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_7x13_italic.raw"),
         112,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(7, 13),
     character_spacing: 0,
@@ -164,10 +164,10 @@ pub const FONT_7X13_ITALIC: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 7x14 pixel monospace font.
 pub const FONT_7X14: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_7x14.raw"),
         112,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(7, 14),
     character_spacing: 0,
@@ -176,10 +176,10 @@ pub const FONT_7X14: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 7x14 pixel monospace font.
 pub const FONT_7X14_BOLD: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_7x14_bold.raw"),
         112,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(7, 14),
     character_spacing: 0,
@@ -188,10 +188,10 @@ pub const FONT_7X14_BOLD: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 8x13 pixel monospace font.
 pub const FONT_8X13: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_8x13.raw"),
         128,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(8, 13),
     character_spacing: 0,
@@ -200,10 +200,10 @@ pub const FONT_8X13: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 8x13 pixel monospace font.
 pub const FONT_8X13_BOLD: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_8x13_bold.raw"),
         128,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(8, 13),
     character_spacing: 0,
@@ -212,10 +212,10 @@ pub const FONT_8X13_BOLD: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 8x13 pixel monospace font.
 pub const FONT_8X13_ITALIC: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_8x13_italic.raw"),
         128,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(8, 13),
     character_spacing: 0,
@@ -224,10 +224,10 @@ pub const FONT_8X13_ITALIC: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 9x15 pixel monospace font.
 pub const FONT_9X15: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_9x15.raw"),
         144,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(9, 15),
     character_spacing: 0,
@@ -236,10 +236,10 @@ pub const FONT_9X15: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 9x15 pixel monospace font.
 pub const FONT_9X15_BOLD: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_9x15_bold.raw"),
         144,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(9, 15),
     character_spacing: 0,
@@ -248,10 +248,10 @@ pub const FONT_9X15_BOLD: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 9x18 pixel monospace font.
 pub const FONT_9X18: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_9x18.raw"),
         144,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(9, 18),
     character_spacing: 0,
@@ -260,10 +260,10 @@ pub const FONT_9X18: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 9x18 pixel monospace font.
 pub const FONT_9X18_BOLD: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_9x18_bold.raw"),
         144,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(9, 18),
     character_spacing: 0,
@@ -272,10 +272,10 @@ pub const FONT_9X18_BOLD: crate::MultiMonoFont = crate::MultiMonoFont {
 
 /// 10x20 pixel monospace font.
 pub const FONT_10X20: crate::MultiMonoFont = crate::MultiMonoFont {
-    image: embedded_graphics::image::ImageRaw::new(
+    glyph_data: GlyphData::ImgRaw(embedded_graphics::image::ImageRaw::new(
         include_bytes!("../../fonts/raw/iso_8859_10/font_10x20.raw"),
         160,
-    ),
+    )),
     glyph_mapping: &crate::mapping::ISO_8859_10,
     character_size: CharSize::new(10, 20),
     character_spacing: 0,

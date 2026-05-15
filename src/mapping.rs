@@ -41,8 +41,6 @@
 //!
 //! [`MultiMonoFont`]: super::MultiMonoFont
 
-use core::ops::RangeInclusive;
-
 /// Glyph mapping stored as a UTF-8 string.
 ///
 /// See the [module-level documentation] for more details.
@@ -61,34 +59,6 @@ impl<'a> StrGlyphMapping<'a> {
             data,
             replacement_index,
         }
-    }
-
-    /// Returns an iterator over the character ranges.
-    pub fn ranges(&self) -> impl Iterator<Item = (usize, RangeInclusive<char>)> + '_ {
-        let mut chars = self.data.chars();
-        let mut index = 0;
-
-        core::iter::from_fn(move || {
-            let start_index = index;
-
-            let range = match chars.next()? {
-                '\0' => {
-                    let start = chars.next()?;
-                    let end = chars.next()?;
-
-                    index += end as usize - start as usize + 1;
-
-                    start..=end
-                }
-                c => {
-                    index += 1;
-
-                    c..=c
-                }
-            };
-
-            Some((start_index, range))
-        })
     }
 
     /// Returns an iterator over the characters in this mapping.

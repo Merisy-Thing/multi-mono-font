@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.0 - 2026-5-15
+ - Add RLE font compression support (`font-rle` feature)
+ - Add `MonoRleImage` and `MonoImageStack` for RLE image drawing
+ - Add `GlyphData` enum to support both raw image and RLE font data
+ - Update to Rust Edition 2024
+
 ## 0.4.4 - 2026-1-31
  - Fix Framebuffer bounding_box() method
  - let BulkFlushTarget base on DrawTarget 

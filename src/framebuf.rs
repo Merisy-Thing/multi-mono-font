@@ -1,7 +1,7 @@
 use core::ops::Sub;
+use embedded_graphics::Pixel;
 use embedded_graphics::prelude::*;
 use embedded_graphics::primitives::Rectangle;
-use embedded_graphics::Pixel;
 
 pub trait BulkFlushTarget: DrawTarget {
     /// Flushes the buffer to the target.
@@ -13,9 +13,7 @@ pub struct Framebuffer<'a, COL: PixelColor, DRAW: BulkFlushTarget<Color = COL>> 
     fb: FramebufferInner<'a, COL>,
 }
 
-impl<'a, COL: PixelColor, DRAW: BulkFlushTarget<Color = COL>>
-    Framebuffer<'a, COL, DRAW>
-{
+impl<'a, COL: PixelColor, DRAW: BulkFlushTarget<Color = COL>> Framebuffer<'a, COL, DRAW> {
     /// Creates a new [Framebuffer] instance based on the provided [DrawTarget].
     pub fn new(target: &'a mut DRAW, buffer: &'a mut [COL]) -> Self {
         Self {

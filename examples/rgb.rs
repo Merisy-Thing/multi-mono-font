@@ -7,12 +7,12 @@ use embedded_graphics::{
 };
 use embedded_graphics_simulator::{OutputSettingsBuilder, SimulatorDisplay, Window};
 use multi_mono_font::{
-    mapping::StrGlyphMapping, CharSize, MonoImage, MultiMonoFont, MultiMonoLineHeight,
-    MultiMonoTextStyle, MultiMonoTextStyleBuilder, StaticText,
+    CharSize, GlyphData, MonoImage, MultiMonoFont, MultiMonoLineHeight, MultiMonoTextStyle,
+    MultiMonoTextStyleBuilder, StaticText, mapping::StrGlyphMapping,
 };
 
 const UPPER_FONT: MultiMonoFont = MultiMonoFont {
-    image: ImageRaw::new(include_bytes!("fonts/upper.bin"), 96),
+    glyph_data: GlyphData::ImgRaw(ImageRaw::new(include_bytes!("fonts/upper.bin"), 96)),
     glyph_mapping: &StrGlyphMapping::new("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26),
     character_size: CharSize::new(6, 12),
     character_spacing: 2,
@@ -20,7 +20,7 @@ const UPPER_FONT: MultiMonoFont = MultiMonoFont {
 };
 
 const LOWER_FONT: MultiMonoFont = MultiMonoFont {
-    image: ImageRaw::new(include_bytes!("fonts/lower.bin"), 128),
+    glyph_data: GlyphData::ImgRaw(ImageRaw::new(include_bytes!("fonts/lower.bin"), 128)),
     glyph_mapping: &StrGlyphMapping::new("abcdefghijklmnopqrstuvwxyz", 0),
     character_size: CharSize::new(16, 32),
     character_spacing: 5,
@@ -28,7 +28,7 @@ const LOWER_FONT: MultiMonoFont = MultiMonoFont {
 };
 
 const HZ_FONT: MultiMonoFont = MultiMonoFont {
-    image: ImageRaw::new(include_bytes!("fonts/HZ.bin"), 96),
+    glyph_data: GlyphData::ImgRaw(ImageRaw::new(include_bytes!("fonts/HZ.bin"), 96)),
     glyph_mapping: &StrGlyphMapping::new("字体测试", 0),
     character_size: CharSize::new(24, 24),
     character_spacing: 4,
@@ -52,7 +52,7 @@ const MULTI_STYLE1: MultiMonoTextStyle<Rgb565> = MultiMonoTextStyleBuilder::new(
     .build();
 
 const IMG_BAT: ImageRaw<BinaryColor> =
-    ImageRaw::<BinaryColor>::new(include_bytes!("fonts/battery.bin"), 29);
+    ImageRaw::<BinaryColor>::new(include_bytes!("imgs/battery.bin"), 29);
 
 fn main() -> Result<(), core::convert::Infallible> {
     let mut disp = SimulatorDisplay::<Rgb565>::new(Size::new(160, 80));

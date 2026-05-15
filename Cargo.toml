@@ -1,7 +1,7 @@
 [package]
 name = "multi-mono-font"
-version = "0.4.4"
-edition = "2021"
+version = "0.5.0"
+edition = "2024"
 authors = ["Merisy-Thing <merisy-thing@outlook.com>"]
 description = "Multi mono font mixed typesetting for embedded-graphics"
 readme = "README.md"
@@ -11,12 +11,20 @@ license = "MIT"
 repository = "https://github.com/Merisy-Thing/multi-mono-font"
 
 [dependencies]
-embedded-graphics = "0.8.1"
-log = { version = "0.4", default-features = false }
+cfg-if = "1.0"
+embedded-graphics = "0.8"
+log = { version = "0.4", default-features = false, optional = true }
 
 [dev-dependencies]
-embedded-graphics-simulator = "0.7.0"
+embedded-graphics-simulator = "0.8"
+simple_logger = "5.2"
 
 [features]
+default = ["font-rawimg"]
+
+font-rawimg = [] # enable raw image based font
+font-rle = [] # enable font rle compress
 big-character-size = [] # character width or height big then 255
+rle-index-ty-32bit = [] # rle index type 32bit, default is 16bit
 defmt = []
+

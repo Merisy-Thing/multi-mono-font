@@ -1,6 +1,6 @@
 use embedded_graphics::{
-    draw_target::DrawTarget, geometry::Dimensions, iterator::ContiguousIteratorExt,
-    pixelcolor::BinaryColor, primitives::Rectangle, Pixel,
+    Pixel, draw_target::DrawTarget, geometry::Dimensions, iterator::ContiguousIteratorExt,
+    pixelcolor::BinaryColor, primitives::Rectangle,
 };
 
 pub struct MultiMonoFontDrawTarget<'a, T, C> {

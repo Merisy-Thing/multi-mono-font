@@ -1,21 +1,21 @@
+use crate::{
+    ChSzTy, GlyphData, MultiMonoFont, MultiMonoFontList, char_size::CharSize,
+    draw_target::MultiMonoFontDrawTarget,
+};
 use embedded_graphics::{
     draw_target::DrawTarget,
     geometry::{Point, Size},
-    image::Image,
     pixelcolor::{BinaryColor, PixelColor},
     prelude::OriginDimensions,
     primitives::Rectangle,
     text::{
-        renderer::{CharacterStyle, TextMetrics, TextRenderer},
         Baseline,
+        renderer::{CharacterStyle, TextMetrics, TextRenderer},
     },
-    Drawable,
 };
 
-use crate::{
-    char_size::CharSize, draw_target::MultiMonoFontDrawTarget, ChSzTy, MultiMonoFont,
-    MultiMonoFontList,
-};
+#[cfg(feature = "font-rawimg")]
+use embedded_graphics::{Drawable, image::Image};
 
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub enum MultiMonoLineHeight {
@@ -131,9 +131,24 @@ where
 
         for c in text.chars() {
             let font = self.get_font_info(c);
-            let glyph = font.glyph(c);
             draw_pos = next_pos - Point::new(0, self.baseline_offset(baseline, font));
-            Image::new(&glyph, draw_pos).draw(&mut target)?;
+            match font.glyph_data {
+                #[cfg(feature = "font-rawimg")]
+                GlyphData::ImgRaw(img_raw) => {
+                    let glyph = font.glyph_img(c, &img_raw);
+                    Image::new(&glyph, draw_pos).draw(&mut target)?;
+                }
+                #[cfg(feature = "font-rle")]
+                GlyphData::RLE(rle_raw) => {
+                    let glyph = font.glyph_rle(c, &rle_raw);
+                    crate::glyph_reader::render_glyph_as_box_fill(
+                        &Rectangle::new(draw_pos, font.character_size.size()),
+                        glyph,
+                        &mut target,
+                    )?;
+                }
+            }
+
             next_pos.x += font.character_size.width as i32;
             if font.character_spacing > 0 {
                 draw_pos.x += font.character_size.width as i32;
@@ -213,13 +228,13 @@ where
         };
         let position = position - Point::new(0, offet_y);
 
-        if width != 0 {
-            if let Some(background_color) = self.background_color {
-                target.fill_solid(
-                    &Rectangle::new(position, Size::new(width, height as u32)),
-                    background_color,
-                )?;
-            }
+        if width != 0
+            && let Some(background_color) = self.background_color
+        {
+            target.fill_solid(
+                &Rectangle::new(position, Size::new(width, height as u32)),
+                background_color,
+            )?;
         }
 
         Ok(position + Point::new(width as i32, offet_y))
