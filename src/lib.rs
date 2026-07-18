@@ -1,5 +1,7 @@
 #![no_std]
 
+pub mod prelude;
+
 mod char_size;
 mod draw_target;
 mod framebuf;

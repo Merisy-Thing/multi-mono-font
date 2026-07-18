@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.5.1 - 2026-7-18
+ - Add `prelude` module for convenient unified import (`use multi_mono_font::prelude::*`)
+
 ## 0.5.0 - 2026-5-15
  - Add RLE font compression support (`font-rle` feature)
  - Add `MonoRleImage` and `MonoImageStack` for RLE image drawing
